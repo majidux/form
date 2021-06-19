@@ -1,0 +1,16 @@
+$fontFamily: sans-serif;
+.form-label {
+  font-family: $fontFamily;
+  font-size: 14px;
+}
+.form_text-error {
+  font-family: $fontFamily;
+  color: red;
+  font-size: 10px;
+}
+.form_element-wrapper {
+  margin: 0 0 1rem 0;
+  input {
+    min-width: 20rem;
+  }
+}

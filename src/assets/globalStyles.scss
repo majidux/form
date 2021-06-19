@@ -1,0 +1,27 @@
+.d-flex {
+  display: flex;
+}
+
+.dir-column {
+  flex-direction: column;
+}
+
+.dir-row {
+  flex-direction: row;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.height-fit {
+  height: 100vh;
+}
+
+.width-fit {
+  width: 100vw;
+}
