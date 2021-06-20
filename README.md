@@ -1,12 +1,12 @@
 # A simple form component
 
-##### Import form component and pass in an list array with this format
+##### Import form component and pass in an array list with this format
 
 ```javascript
-import { Form } from "@components";
+import { Form, ListType } from "@components";
 
-/** Just play with this array to create your form :) */
-const list = [
+/** Just play with this array to create your form :) / always give the list "ListType[]" type */
+const list: ListType[] = [
   {
     name: 'userName',
     label: 'User Name',
@@ -27,8 +27,8 @@ const list = [
 ];
 
 function Example() {
-  const onSubmit = (data: any) => {
-    alert(data);
+  const onSubmit = (arg) => {
+    alert(arg);
   };
 
   return (

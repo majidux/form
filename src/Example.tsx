@@ -1,8 +1,8 @@
 import { Form, ListType } from './utils';
 
 export function Example() {
-  const onSubmit = (data: any) => {
-    alert(`Username is: ${data.userName} and password is: ${data.password}`);
+  const onSubmit = (arg: any) => {
+    alert(`Username is: ${arg.userName} and password is: ${arg.password}`);
   };
 
   return (
