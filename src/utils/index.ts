@@ -11,3 +11,4 @@ export {
   handleYupExtractor,
   handleFilterFalsy,
 } from './tools';
+export type { ListType } from './../components/Form/types';

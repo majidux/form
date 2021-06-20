@@ -12,9 +12,11 @@ export function handleArrayToObject<GenericType>(
   }));
 }
 
-type YupShapeType = any;
+type YupShapeType<GenericType> = GenericType & any;
 /** handleYupShape function takes an object which was created before ArrayToObjectType */
-export function handleYupShape(data: YupShapeType): any {
+export function handleYupShape<GenericType>(
+  data: YupShapeType<GenericType>
+): any {
   return yup.object().shape({ ...data });
 }
 
@@ -37,8 +39,10 @@ export function handleYupExtractor<Type>({
   );
 }
 
-type FilterFalsyType = { list: unknown[] };
+type FilterFalsyType<GenericType> = GenericType & { list: unknown[] };
 /** handleFilterFalsy function takes an array and delete all falsy parameters and returns a new array */
-export function handleFilterFalsy({ list }: FilterFalsyType): unknown[] {
+export function handleFilterFalsy<GenericType>({
+  list,
+}: FilterFalsyType<GenericType>): unknown[] {
   return list?.filter(Boolean);
 }

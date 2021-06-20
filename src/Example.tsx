@@ -1,4 +1,4 @@
-import { Form } from './utils';
+import { Form, ListType } from './utils';
 
 export function Example() {
   const onSubmit = (data: any) => {
@@ -15,8 +15,8 @@ export function Example() {
   );
 }
 
-/** Just play with this array to create your form :) */
-const list = [
+/** Just play with this array to create your form :) / always give the list "ListType[]" type */
+const list: ListType[] = [
   {
     name: 'userName',
     label: 'User Name',

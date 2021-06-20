@@ -32,7 +32,8 @@ export function Form(props: IFormInput) {
     }
   );
 
-  const handleSubmitForm = (data: any): void => {
+  const handleSubmitForm = (data: ListType): void => {
+    console.log(data);
     onSubmit(data);
     reset();
   };
