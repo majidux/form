@@ -2,7 +2,7 @@ import { Form } from './utils';
 
 export function Example() {
   const onSubmit = (data: any) => {
-    console.log(data);
+    alert(`Username is: ${data.userName} and password is: ${data.password}`);
   };
 
   return (

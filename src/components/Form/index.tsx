@@ -1,27 +1,33 @@
+/** This is an uncontrolled form component */
 import {
   useForm,
   yupResolver,
   Children,
-  yup,
   handleArrayToObject,
+  handleYupShape,
+  handleYupExtractor,
+  handleFilterFalsy,
 } from '../../utils';
 import './style.scss';
 import { IFormInput, ListType } from './types';
 
 export function Form(props: IFormInput) {
-  const { onSubmit, list } = props;
-  const extractedRequiredItem = list?.map(
-    (item: ListType) =>
-      item.require && {
-        [item.name]: yup.string().required(item.require),
-      }
+  const { onSubmit, list = [], defaultValues } = props;
+  const extractedRequiredItem = handleYupExtractor<ListType>({
+    list,
+    keyName: 'name',
+    basedOn: 'require',
+  });
+
+  const schema = handleYupShape(
+    handleArrayToObject<ListType>(
+      handleFilterFalsy({ list: extractedRequiredItem })
+    )
   );
-  const schema = yup
-    .object()
-    .shape({ ...handleArrayToObject(extractedRequiredItem.filter(Boolean)) });
 
   const { register, handleSubmit, errors, reset } = useForm(
     schema && {
+      defaultValues,
       resolver: yupResolver(schema),
     }
   );
@@ -66,13 +72,17 @@ export function Form(props: IFormInput) {
             )}
           </section>
         ),
-        button: <button className='form-button'>Submit</button>,
+        button: <button className='form-button'>{value}</button>,
       };
       return <>{formElements[itemType]}</>;
     })
   );
   return (
-    <form className='form_parent' onSubmit={handleSubmit(handleSubmitForm)}>
+    <form
+      data-testid='form'
+      className='form_parent'
+      onSubmit={handleSubmit(handleSubmitForm)}
+    >
       {renderItems}
     </form>
   );

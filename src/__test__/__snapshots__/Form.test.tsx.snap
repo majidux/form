@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<DocumentFragment>
+  <form
+    class="form_parent"
+    data-testid="form"
+  >
+    <section
+      class="form_element-wrapper d-flex dir-column "
+    >
+      <input
+        name="userName"
+        placeholder="placeholder..."
+        type="text"
+      />
+    </section>
+    <button
+      class="form-button"
+    >
+      Send
+    </button>
+  </form>
+</DocumentFragment>
+`;
