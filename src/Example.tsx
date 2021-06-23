@@ -16,7 +16,7 @@ export function Example() {
 }
 
 /** Just play with this array to create your form :) / always give the list "ListType[]" type */
-/** You can add this into your database and change from there server in the way you want it */
+/** You can add this into your database and change it from the server in the way you want it */
 const list: ListType[] = [
   {
     name: 'userName',
